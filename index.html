@@ -8,7 +8,7 @@
   <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
   <title>MVCS-TASKMANAGER</title>
@@ -27,15 +27,8 @@
     <div class="container-fluid">
       <div class="row p-3 align-items-end ">
         <div class="col-md-4 ">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="List Name" aria-label="List Name">
-            <span>
-              <input type="color" class="form-control form-control-color " id="exampleColorInput" value="#563d7c"
-                title="Choose your color">
-            </span>
-            <span>
-              <button class="btn btn-outline-secondary bg-success text-dark ." type="button" id="button-addon2"
-                onclick="createList()">Create</button>
+          <button class="btn btn-primary" data-bs-target="#listTemplateModal" data-bs-toggle="modal"
+          onclick="app.listTemplatesController.drawListTemplateForm()">Create List</button>
             </span>
           </div>
         </div>
@@ -45,120 +38,39 @@
 
 
     <div class="container-fluid">
-      <div class="row justify-content-evenly">
-        <div class="col-md-3 p-5">
-          <div class="row flex-column mt-5">
-            <div class="col text-center bg-primary pt-3 fs-4 rounded">
-              <p>List Name</p>
-              <p>0/5</p>
-            </div>
-            <div class="col p-0 fs-4">
-              <ul class="list-group" id="listReciever">
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  First checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Second checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Third checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Fourth checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Fifth checkbox
-                </li>
-              </ul>
-            </div>
-            <div class="input-group mb-3 p-0">
-              <input type="text" class="form-control fs-4" placeholder="Recipient's username"
-                aria-label="Recipient's username" aria-describedby="button-addon2">
-              <button class="btn btn-outline-secondary fs-4" type="button" id="button-addon2">Button</button>
-            </div>
-          </div>
-        </div>
+      <div class="row justify-content-evenly" id="listArea">
 
-        <div class="col-md-3 p-5">
-          <div class="row flex-column mt-5">
-            <div class="col text-center bg-primary pt-3 fs-4 rounded">
-              <p>List Name</p>
-              <p>0/5</p>
+        <!-- <div class="col-md-3 p-5">
+          <div class="row flex-column mt-5 border border-dark rounded">
+            <div class="col bg-primary pt-1 fs-4 rounded border border-dark">
+              <p class="text-end">
+                <i class="mdi mdi-delete selectable"></i>
+              </p>
+              <span class="text-center">
+                <p>List name</p>
+                <p>0/5</p>
+              </span>
             </div>
             <div class="col p-0 fs-4">
               <ul class="list-group" id="listReciever">
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  First checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Second checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Third checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Fourth checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Fifth checkbox
-                </li>
-              </ul>
-            </div>
-            <div class="input-group mb-3 p-0">
-              <input type="text" class="form-control fs-4" placeholder="Recipient's username"
-                aria-label="Recipient's username" aria-describedby="button-addon2">
-              <button class="btn btn-outline-secondary fs-4" type="button" id="button-addon2">Button</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 p-5">
-          <div class="row flex-column mt-5">
-            <div class="col text-center bg-primary pt-3 fs-4 ">
-              <p>List Name</p>
-              <p>0/5</p>
-            </div>
-            <div class="col p-0 fs-4">
-              <ul class="list-group" id="listReciever">
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  First checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Second checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Third checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Fourth checkbox
-                </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                  Fifth checkbox
-                </li>
-              </ul>
-            </div>
-            <div class="input-group mb-3 p-0">
-              <input type="text" class="form-control fs-4" placeholder="Recipient's username"
-                aria-label="Recipient's username" aria-describedby="button-addon2">
-              <button class="btn btn-outline-secondary fs-4" type="button" id="button-addon2">Button</button>
-            </div>
-          </div>
-        </div>
 
+                <li class="list-group-item py-3">
+                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                  First checkbox
+                </li>
+
+              </ul>
+            </div>
+            <form onsubmit="app.listingController.createListItem('${this.id}')" class="p-0 border border-dark">
+              <div class="form-group d-flex">
+
+                <input type="text" name="name" class="form-control" placeholder="ListItem....">
+                <button class="btn btn-success">+</button>
+              </div>
+            </form>
+          </div>
+        </div> -->
+         
       </div>
     </div>
 
@@ -176,6 +88,22 @@
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
   <script src="app/main.js" type="module"></script>
+
+  <!--Modal-->
+  <div class="modal fade" id="listTemplateModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create List!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal-body-slot">
+          <!-- Form will be injected here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

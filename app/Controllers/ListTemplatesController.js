@@ -17,6 +17,7 @@ export class ListTemplatesController {
 
   constructor() {
     ProxyState.on('listTemplates', _drawListTemplates)
+    ProxyState.on('listItems', _drawListTemplates)
     _drawListTemplates()
   }
 
@@ -32,6 +33,11 @@ export class ListTemplatesController {
 
     form.reset()
     bootstrap.Modal.getOrCreateInstance(document.getElementById('listTemplateModal')).toggle()
+ }
+
+ deleteListTemplate(listTemplateId) {
+   console.log('list template id', listTemplateId)
+   listTemplatesService.deleteListTemplate(listTemplateId)
  }
  drawListTemplateForm(){
    _drawListTemplateForm()

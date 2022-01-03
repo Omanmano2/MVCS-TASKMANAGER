@@ -5,9 +5,7 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
   values = []
 
-  listItems = [
-   
-  ]
+  listItems = []
 
   listTemplates = [
     // new ListTemplate ({color: '#ea0606', name: 'Chores'})

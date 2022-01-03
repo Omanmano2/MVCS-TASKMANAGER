@@ -16,7 +16,7 @@ export class ListTemplate {
     <div class="row flex-column mt-5 border border-dark rounded">
       <div class="col pt-1 fs-4 rounded border border-dark" style="background-color: ${this.color}">
         <p class="text-end">
-          <i class="mdi mdi-delete selectable" onclick="  app.listTemplatesController.deleteListTemplate('${this.id}')"></i>
+          <i class="mdi mdi-delete selectable" onclick="app.listTemplatesController.deleteListTemplate('${this.id}')"></i>
         </p>
         <span class="text-center">
           <p>${this.name}</p>
@@ -42,7 +42,7 @@ export class ListTemplate {
 
   get ListItems() {
     let template = ''
-    let foundListItems = ProxyState.listItems.filter(l => l.ListTemplateId == this.id)
+    let foundListItems = ProxyState.listItems.filter(l => l.listTemplateId == this.id)
     foundListItems.forEach(l => template += l.Template)
     console.log('found list item', foundListItems)
     return template

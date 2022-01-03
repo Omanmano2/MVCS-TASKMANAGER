@@ -11,6 +11,7 @@ export class ListItemsController{
 
   createListItem(listTemplateId) {
     window.event.preventDefault()
+    debugger
     let form = window.event.target
     const newListItem = {
       name: form.name.value,

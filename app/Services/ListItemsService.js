@@ -14,6 +14,7 @@ class ListItemsService {
   createListItem(newListItem) {
     ProxyState.listItems = [new ListItem(newListItem), ...ProxyState.listItems]
     console.log('list items', ProxyState.listItems)
+    console.log('lists', ProxyState.listTemplates)
   }
 
   deleteListItem(listTemplateId) {

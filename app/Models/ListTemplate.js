@@ -33,7 +33,7 @@ export class ListTemplate {
         <div class="form-group d-flex">
           <input type="text" name="name" class="form-control" placeholder="Add item...." minlength="3"
           maxlength="50" required>
-          <button class="btn btn-success">+</button>
+          <button class="btn" style="background-color: ${this.color}">+</button>
         </div>
       </form>
     </div>

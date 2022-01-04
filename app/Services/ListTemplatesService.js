@@ -1,12 +1,13 @@
 import { ProxyState } from "../AppState.js"
 import { ListTemplate } from "../Models/ListTemplate.js"
-import { listItemsService } from "./ListItemsService.js"
+import { saveState } from "../Utils/LocalStorage.js";
+import { listItemsService } from "./ListItemsService.js";
 
 
 
 class ListTemplatesService {
   constructor() {
-    ProxyState.on('listTemplates')
+    ProxyState.on('listTemplates', saveState)
   }
 
   createListTemplate(newListTemplate) {

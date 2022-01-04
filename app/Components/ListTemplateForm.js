@@ -3,7 +3,7 @@ export function listTemplateForm() {
   return /*html*/ `
 <form onsubmit="app.listTemplatesController.createListTemplate()">
   <div class="form-group">
-    <input type="text" name="name" class="form-control" placeholder="List Name..." minlength="4"
+    <input type="text" name="name" class="form-control" placeholder="List Name..." minlength="3"
       maxlength="50" required>
   </div>
   <div class="form-group mt-2">

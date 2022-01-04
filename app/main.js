@@ -1,5 +1,6 @@
 import { ListItemsController } from "./Controllers/ListItemsController.js";
 import {ListTemplatesController } from "./Controllers/ListTemplatesController.js";
+import { loadState } from "./Utils/LocalStorage.js";
 
 class App {
   // valuesController = new ValuesController();
@@ -7,5 +8,7 @@ class App {
 
   listItemsController = new ListItemsController()
 }
+
+loadState()
 
 window["app"] = new App();

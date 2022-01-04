@@ -11,7 +11,6 @@ export class ListItemsController{
 
   createListItem(listTemplateId) {
     window.event.preventDefault()
-    debugger
     let form = window.event.target
     const newListItem = {
       name: form.name.value,
@@ -20,4 +19,20 @@ export class ListItemsController{
     listItemsService.createListItem(newListItem)
     console.log('list item object', newListItem);
   }
+
+  deleteListItem(listTemplateId) {
+    if (confirm('Are you sure you want to delete') == true) {
+      console.log('list template id', listTemplateId)
+      listItemsService.deleteListItem(listTemplateId)
+     } else {
+       
+     }
+    }
+
+
+  // checkedItem(listItemId){
+  //   console.log('item checked', listItemId)
+  //   listItemsService.checkedItem(listItemId)
+  // }
+
  }

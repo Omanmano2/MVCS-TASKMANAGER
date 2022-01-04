@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { ListItem } from "../Models/ListItem.js";
+import { saveState } from "../Utils/LocalStorage.js";
 
 
 
@@ -8,7 +9,7 @@ import { ListItem } from "../Models/ListItem.js";
 class ListItemsService {
 
   constructor() {
-    ProxyState.on('listItems')
+    ProxyState.on('listItems', saveState)
   }
 
   createListItem(newListItem) {
@@ -17,9 +18,14 @@ class ListItemsService {
     console.log('lists', ProxyState.listTemplates)
   }
 
-  deleteListItem(listTemplateId) {
-    ProxyState.listItems = ProxyState.listItems.filter(l => l.listTemplateId !== listTemplateId)
+  deleteListItem(listItemsId) {
+    ProxyState.listItems = ProxyState.listItems.filter(l => l.id !== listItemsId)
   }
+
+  // checkedItem(listItemId){
+  //   ProxyState.listItems = ProxyState.listItems.forEach(c =>c.id = true)
+  
+
 }
 
 export const listItemsService = new ListItemsService()

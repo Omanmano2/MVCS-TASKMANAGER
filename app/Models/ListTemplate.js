@@ -31,7 +31,8 @@ export class ListTemplate {
       </div>
       <form onsubmit="app.listItemsController.createListItem('${this.id}')" class="p-0 border border-dark">
         <div class="form-group d-flex">
-          <input type="text" name="name" class="form-control" placeholder="Add item....">
+          <input type="text" name="name" class="form-control" placeholder="Add item...." minlength="3"
+          maxlength="50" required>
           <button class="btn btn-success">+</button>
         </div>
       </form>

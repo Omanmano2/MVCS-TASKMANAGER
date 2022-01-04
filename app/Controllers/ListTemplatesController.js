@@ -4,6 +4,7 @@ import { listTemplatesService } from "../Services/ListTemplatesService.js"
 
 
 
+
 function _drawListTemplates() {
   let template = ''
   ProxyState.listTemplates.forEach(t => template += t.Template)
@@ -36,8 +37,12 @@ export class ListTemplatesController {
  }
 
  deleteListTemplate(listTemplateId) {
+  if (confirm('Are you sure you want to delete') == true) {
    console.log('list template id', listTemplateId)
    listTemplatesService.deleteListTemplate(listTemplateId)
+  } else {
+    
+  }
  }
  drawListTemplateForm(){
    _drawListTemplateForm()
